@@ -4,6 +4,7 @@ function [ TR,TT,source ] = Iterativeclosestpoint( model,source,ErrVal )
 %Translational matrix, Rotation Matrix and new source data after rotation
 %and translation as output.
 
+
 m=size(model,1);  %Dimension of model data
 M=size(model,2);  %Number of points of model data
 N=size(source,2); %Number of points of the source data
