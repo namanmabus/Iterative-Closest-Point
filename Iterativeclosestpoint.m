@@ -37,22 +37,27 @@ end
 H=source1*p1'; % Defined a matrix H for getting its Singular value decomposition
 [U,D,V]=svd(H); % Singular value decomposition of H
 
-R=V*U';  %
-T=Cm-R*Cs;
+R=V*U';  % Rotation Matrix R
+T=Cm-R*Cs; % Translational Vector T
 
+% Building the Transformation
 TR=R*TR;
 TT=R*TT+T;
 
-source=R*source;
+source=R*source; % Transforming the source dataset with the Rotation matrix
 
+% Transforming the source dataset with Translational vector
 for i=1:1:m
         source(i,:)=source(i,:)+T(i);
 end
+
+% calculating the error between the model and the source
 Err=0;
 for i=1:1:N
     Err=Err+norm(model(:,vi(i))-source(:,i));
 end
 
+% if the error is less that the defined threshold then break otherwise continue the loop
 if abs(Err1-Err/N)<ErrVal
     break;
 else
