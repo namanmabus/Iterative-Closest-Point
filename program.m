@@ -1,6 +1,7 @@
 clc;
 clear all;
 
+
 fprintf('Loading and Visualizing 2D Line Data ...\n')
 load('2D_Line.mat');
 
